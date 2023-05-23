@@ -1,0 +1,10 @@
+.general-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.general-info label,
+.general-info input {
+  display: block;
+  margin: 10px 0;
+}
