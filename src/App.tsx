@@ -1,14 +1,14 @@
 import { useState } from "react";
-import Header from "./layout/Header";
-import Body from "./layout/Body";
-import Footer from "./layout/Footer";
+import Header from "./layout/Header/Header";
+import Main from "./layout/Main/Main";
+import Footer from "./layout/Footer/Footer";
 import "./App.css";
 
 function App() {
   return (
-    <div className="container">
+    <div className="main-container">
       <Header></Header>
-      <Body></Body>
+      <Main></Main>
       <Footer></Footer>
     </div>
   );
