@@ -3,7 +3,7 @@ import "./General.css";
 
 export default function General() {
   return (
-    <div className="general-info">
+    <div className="general-container">
       <input
         type="text"
         id="title"
@@ -41,10 +41,8 @@ export default function General() {
         placeholder="Write more about yourself!"
       ></textarea>
 
-      <label htmlFor="photo">
-        Add Photo
-        <input type="file" name="" id="photo" />
-      </label>
+      <label htmlFor="photo">Add Photo</label>
+      <input type="file" name="" id="photo" />
     </div>
   );
 }
