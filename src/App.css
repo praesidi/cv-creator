@@ -1,10 +1,12 @@
 #root {
   margin: 0 auto;
   padding: 0;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.87);
+  font-family: "Noto Sans JP", Inter, system-ui, Avenir, sans-serif;
+  color: #eeeeee;
   background-color: #242424;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .main-container {
@@ -12,5 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  max-width: 1400px;
+  min-width: 900px;
 }
