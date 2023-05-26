@@ -6,16 +6,50 @@ import Skills from "../../components/Skills/Skills";
 import Overview from "../../components/Overview/Overview";
 import "./Main.css";
 
-//TODO: if edit mode is ON show inputs else show ready CV
-
 export default function Main() {
+  interface UserInfo {
+    title: string;
+    fName: string;
+    lName: string;
+    address: string;
+    phone: string;
+    email: string;
+    description: string;
+    photo: string;
+  }
+
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    title: "",
+    fName: "",
+    lName: "",
+    address: "",
+    phone: "",
+    email: "",
+    description: "",
+    photo: "",
+  });
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+
+    if (name === "photo" && e.target.files && e.target.files[0]) {
+      const url = URL.createObjectURL(e.target.files[0]);
+      setUserInfo({
+        ...userInfo,
+        photo: url,
+      });
+    } else {
+      setUserInfo({ ...userInfo, [name]: value });
+    }
+  }
+
   return (
     <div className="main">
-      <General></General>
+      <General onChange={handleChange} user={userInfo}></General>
       <PreviousWork></PreviousWork>
       <Education></Education>
       <Skills></Skills>
-      <Overview></Overview>
+      <Overview user={userInfo}></Overview>
     </div>
   );
 }

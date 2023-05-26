@@ -1,5 +1,5 @@
 .overview-container {
-  min-width: 740px;
+  width: 740px;
   min-height: 960px;
   background-color: #fff;
   margin-top: 100px;
@@ -15,16 +15,38 @@
   color: black;
 }
 
-.overview-name {
-  text-align: left;
-  margin: 0;
-}
-
 .overview-header-left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: start;
+  height: 150px;
+}
+
+.overview-header-left p {
+  text-align: start;
+  font-size: 14px;
+}
+
+.overview-name {
+  text-align: left;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.overview-title {
+  margin: 5px 0;
+  font-weight: 400;
+  font-size: 18px;
+  color: rgb(68, 68, 68);
+  font-style: italic;
+  text-align: left;
+}
+
+.overview-description {
+  padding-right: 10px;
+  line-height: 1.2rem;
+  margin: 5px 0 0;
 }
 
 .overview-header-right img {
@@ -33,13 +55,19 @@
   object-fit: cover;
 }
 
+/*Blue block with contact info*/
 .overview-socials {
   margin-left: 30px;
+}
+
+.overview-socials i {
+  margin-right: 10px;
 }
 
 .overview-socials table {
   width: 100%;
   background: #0086de;
+  table-layout: fixed;
 }
 
 .overview-socials td {

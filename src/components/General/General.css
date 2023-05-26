@@ -1,10 +1,5 @@
 .general-container {
   display: flex;
   flex-direction: column;
-}
-
-.general-container label,
-.general-container input {
-  display: block;
-  margin: 10px 0;
+  gap: 20px;
 }

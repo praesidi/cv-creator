@@ -3,7 +3,22 @@
   flex-direction: column;
 }
 
-input {
+input,
+textarea {
+  display: block;
   padding: 5px 10px;
+  margin: 15px 0;
   border-radius: 5px;
+  line-height: 1.5rem !important;
+  border: 1px solid lightgray;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid lightgray;
+}
+
+textarea {
+  resize: vertical;
 }

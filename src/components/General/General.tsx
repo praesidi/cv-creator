@@ -1,48 +1,82 @@
 import { useState } from "react";
 import "./General.css";
 
-export default function General() {
+export default function General({ onChange, user }) {
   return (
     <div className="general-container">
       <input
         type="text"
         id="title"
+        name="title"
         placeholder="Title"
+        value={user.title}
+        onChange={onChange}
         maxLength={30}
         minLength={3}
       />
 
       <input
         type="text"
-        id="name"
+        id="fname"
+        name="fName"
         placeholder="First Name"
+        value={user.fName}
+        onChange={onChange}
         maxLength={20}
         minLength={1}
       />
 
       <input
         type="text"
-        id="surname"
+        id="lname"
+        name="lName"
         placeholder="Last Name"
+        value={user.lName}
+        onChange={onChange}
         maxLength={20}
         minLength={1}
       />
 
-      <input type="text" id="address" placeholder="Address" />
+      <input
+        type="text"
+        id="address"
+        name="address"
+        value={user.address}
+        onChange={onChange}
+        placeholder="Address"
+      />
 
-      <input type="tel" id="phone" placeholder="Phone Number" />
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        value={user.phone}
+        onChange={onChange}
+        placeholder="Phone Number"
+      />
 
-      <input type="email" id="email" placeholder="Email" />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={user.email}
+        onChange={onChange}
+        placeholder="Email"
+      />
 
       <textarea
         id="description"
+        name="description"
+        value={user.description}
+        onChange={onChange}
         cols={30}
         rows={5}
+        maxLength={300}
         placeholder="Write more about yourself!"
       ></textarea>
 
       <label htmlFor="photo">Add Photo</label>
-      <input type="file" name="" id="photo" />
+      <input type="file" name="photo" id="photo" onChange={onChange} />
     </div>
   );
 }
