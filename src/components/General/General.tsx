@@ -1,9 +1,16 @@
 import { useState } from "react";
 import "./General.css";
 
-export default function General({ onChange, user }) {
+export default function General({
+  onChange,
+  user,
+}: {
+  onChange: any;
+  user: any;
+}) {
   return (
-    <div className="general-container">
+    <div className="general-container block">
+      <h2>General Information</h2>
       <input
         type="text"
         id="title"
@@ -70,7 +77,7 @@ export default function General({ onChange, user }) {
         value={user.description}
         onChange={onChange}
         cols={30}
-        rows={5}
+        rows={3}
         maxLength={300}
         placeholder="Write more about yourself!"
       ></textarea>
