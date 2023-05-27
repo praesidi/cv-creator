@@ -106,7 +106,7 @@ export default function Main() {
         onDelete={handleSkillDelete}
         onClick={handleSkillClick}
       ></Skills>
-      <Overview user={userInfo}></Overview>
+      <Overview user={userInfo} skills={skillsInfo}></Overview>
     </div>
   );
 }

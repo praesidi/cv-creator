@@ -4,6 +4,7 @@
   background-color: #fff;
   margin-top: 100px;
   box-sizing: border-box;
+  padding-left: 30px;
   border: 20px solid #0086de;
 }
 
@@ -11,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 30px 20px 0;
   color: black;
 }
 
@@ -55,23 +56,61 @@
   object-fit: cover;
 }
 
-/*Blue block with contact info*/
-.overview-socials {
-  margin-left: 30px;
-}
-
-.overview-socials i {
+.overview-contacts i {
   margin-right: 10px;
 }
 
-.overview-socials table {
+.overview-contacts table {
   width: 100%;
   background: #0086de;
   table-layout: fixed;
 }
 
-.overview-socials td {
+.overview-contacts td {
   padding: 5px 20px;
   font-size: 14px;
   text-align: start;
+}
+
+.overview-main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.overview-main-left {
+  width: 60%;
+  border-right: 1px solid #0086de;
+}
+
+.overview-main-right {
+  width: 40%;
+  padding-left: 10px;
+  /* border-left: 1px solid #0086de; */
+}
+
+.overview-main h2 {
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: start;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.overview-main ul {
+  margin: 0;
+  padding: 0;
+}
+
+.overview-main li {
+  color: black;
+  text-align: left;
+  margin-bottom: 5px;
+  list-style-position: inside;
+}
+
+.overview-main li span {
+  position: relative;
+  left: -10px;
 }
