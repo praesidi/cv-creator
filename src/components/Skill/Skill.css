@@ -13,3 +13,7 @@
 .task-item button {
   display: block;
 }
+
+.task-item i {
+  margin-left: 10px;
+}
