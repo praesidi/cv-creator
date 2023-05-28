@@ -1,9 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import General from "../../components/General/General";
 import WorkExperience from "../../components/WorkExperience/WorkExperience";
 import Education from "../../components/Education/Education";
 import Skills from "../../components/Skills/Skills";
 import Overview from "../../components/Overview/Overview";
+import Certificates from "../../components/Certificates/Certificates";
 import { nanoid } from "nanoid";
 import "./Main.css";
 
@@ -82,13 +83,55 @@ export default function Main() {
     const value = skill;
     const id = nanoid(4);
 
-    setSkillsInfo([...skillsInfo, { id: id, value: value }]);
-    setSkill("");
-    // console.log("list: ", skillsInfo);
+    if (skill) {
+      setSkillsInfo([...skillsInfo, { id: id, value: value }]);
+      setSkill("");
+    }
   }
 
   function handleSkillDelete(id: string) {
     setSkillsInfo(skillsInfo.filter((skill) => skill.id !== id));
+  }
+
+  interface CertificateInfo {
+    id: string;
+    value: string;
+    year: string;
+  }
+
+  const [certificatesInfo, setCertificatesInfo] = useState<CertificateInfo[]>(
+    []
+  );
+  const [certificate, setCertificate] = useState<CertificateInfo>({
+    id: "",
+    value: "",
+    year: "",
+  });
+
+  function onCertificateChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { name, value } = e.target;
+
+    setCertificate({ ...certificate, [name]: value });
+  }
+
+  function handleCertificateClick(e: React.ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const value = certificate.value;
+    const year = certificate.year;
+    const id = nanoid(4);
+
+    setCertificatesInfo([
+      ...certificatesInfo,
+      { id: id, value: value, year: year },
+    ]);
+    setCertificate({ id: "", value: "", year: "" });
+    // console.log("list: ", skillsInfo);
+  }
+
+  function handleCertificateDelete(id: string) {
+    setCertificatesInfo(
+      certificatesInfo.filter((certificate) => certificate.id !== id)
+    );
   }
 
   return (
@@ -100,13 +143,24 @@ export default function Main() {
       ></WorkExperience>
       <Education></Education>
       <Skills
-        skillValue={skill}
+        skill={skill}
         skills={skillsInfo}
         onChange={onSkillChange}
         onDelete={handleSkillDelete}
         onClick={handleSkillClick}
       ></Skills>
-      <Overview user={userInfo} skills={skillsInfo}></Overview>
+      <Certificates
+        certificate={certificate}
+        certificates={certificatesInfo}
+        onChange={onCertificateChange}
+        onDelete={handleCertificateDelete}
+        onClick={handleCertificateClick}
+      ></Certificates>
+      <Overview
+        user={userInfo}
+        skills={skillsInfo}
+        certificates={certificatesInfo}
+      ></Overview>
     </div>
   );
 }

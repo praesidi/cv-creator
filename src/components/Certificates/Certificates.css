@@ -1,0 +1,9 @@
+.certificates-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.certificates-list {
+  list-style: none;
+}
