@@ -1,6 +1,3 @@
-import { useState } from "react";
-import "./General.css";
-
 export default function General({
   onChange,
   user,
