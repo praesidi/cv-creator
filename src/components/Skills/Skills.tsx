@@ -3,13 +3,13 @@ import Skill from "../Skill/Skill";
 import "./Skills.css";
 
 export default function Skills({
-  skillValue,
+  skill,
   skills,
   onChange,
   onDelete,
   onClick,
 }: {
-  skillValue: any;
+  skill: any;
   skills: any;
   onChange: any;
   onDelete: any;
@@ -23,7 +23,7 @@ export default function Skills({
         id="skill"
         name="skill"
         maxLength={30}
-        value={skillValue}
+        value={skill}
         onChange={onChange}
         placeholder="Special Skill"
       />
