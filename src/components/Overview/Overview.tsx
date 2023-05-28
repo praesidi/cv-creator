@@ -1,7 +1,15 @@
 import "./Overview.css";
 import avatarPlaceholder from "../../assets/avatar-placeholder.jpg";
 
-export default function Overview({ user, skills }: { user: any; skills: any }) {
+export default function Overview({
+  user,
+  skills,
+  certificates,
+}: {
+  user: any;
+  skills: any;
+  certificates: any;
+}) {
   return (
     <div className="overview-container">
       <div className="overview-header">
@@ -56,6 +64,30 @@ export default function Overview({ user, skills }: { user: any; skills: any }) {
               {skills.map((skill: any) => (
                 <li key={skill.id}>
                   <span>{skill.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2>Education</h2>
+            <ul className="skills-list">
+              {skills.map((skill: any) => (
+                <li key={skill.id}>
+                  <span>{skill.value}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2>Certifications</h2>
+            <ul className="certificates-list">
+              {certificates.map((certificate: any) => (
+                <li key={certificate.id}>
+                  <span>
+                    {certificate.year
+                      ? `${certificate.value}, ${certificate.year}`
+                      : `${certificate.value}`}
+                  </span>
                 </li>
               ))}
             </ul>
