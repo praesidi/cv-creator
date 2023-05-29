@@ -19,6 +19,7 @@ export default function Education({
           (work: {
             id: string;
             position: string;
+            description: string;
             company: string;
             city: string;
             from: string;

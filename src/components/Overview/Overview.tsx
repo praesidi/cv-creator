@@ -22,7 +22,7 @@ export default function Overview({
             {user.fName} {user.lName}
           </h1>
           <h2 className="overview-title">{user.title}</h2>
-          <p className="overview-description">{user.description}</p>
+          <p className="overview-user-description">{user.description}</p>
         </div>
         <div className="overview-header-right">
           {user.photo ? (
@@ -69,9 +69,16 @@ export default function Overview({
                     {work.to ? `${work.from} to ${work.to}` : work.from}
                   </span>
                   <span className="span-bald">{work.position}</span>
-                  <span>
-                    {work.city ? `${work.company}, ${work.city}` : work.company}
-                  </span>
+                  {work.city ? (
+                    <span>
+                      <b>{work.company}</b>
+                      {", "}
+                      {work.city}
+                    </span>
+                  ) : (
+                    <span className="work-list">work.company</span>
+                  )}
+                  <span>{work.description}</span>
                 </li>
               ))}
             </ul>

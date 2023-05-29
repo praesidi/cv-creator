@@ -45,7 +45,7 @@
   text-align: left;
 }
 
-.overview-description {
+.overview-user-description {
   padding-right: 10px;
   line-height: 1.2rem;
   margin: 5px 0 0;
@@ -84,10 +84,13 @@
   border-right: 1px solid #0086de;
 }
 
+.overview-main-left ul {
+  list-style: none;
+}
+
 .overview-main-right {
   width: 40%;
   padding-left: 10px;
-  /* border-left: 1px solid #0086de; */
 }
 
 .overview-main h2 {
@@ -114,17 +117,18 @@
   line-height: 1.3rem;
 }
 
-.education-list span {
-  display: block;
-}
-
-.skill-list li::before {
-  color: #0086de;
+.work-list li {
+  margin-bottom: 20px;
 }
 
 .skill-list li span {
   position: relative;
   left: -10px;
+}
+
+.education-list span,
+.work-list span {
+  display: block;
 }
 
 .education-list {

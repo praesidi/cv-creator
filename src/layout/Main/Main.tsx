@@ -50,6 +50,7 @@ export default function Main() {
   interface Work {
     id: string;
     position: string;
+    description: string;
     company: string;
     city: string;
     from: string;
@@ -60,6 +61,7 @@ export default function Main() {
     {
       id: nanoid(4),
       position: "",
+      description: "",
       company: "",
       city: "",
       from: "",
@@ -88,6 +90,7 @@ export default function Main() {
         {
           id: nanoid(4),
           position: "",
+          description: "",
           company: "",
           city: "",
           from: "",

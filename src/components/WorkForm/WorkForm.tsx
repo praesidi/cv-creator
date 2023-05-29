@@ -58,6 +58,16 @@ export default function Work({
         value={work.to}
         onChange={(e) => onChange(work.id, e)}
       />
+      <textarea
+        name="description"
+        id="workDescription"
+        value={work.description}
+        onChange={(e) => onChange(work.id, e)}
+        cols={30}
+        rows={3}
+        maxLength={300}
+        placeholder="Write here about your previous work"
+      ></textarea>
       <button onClick={() => onDelete(work.id)}>Delete</button>
     </div>
   );

@@ -78,7 +78,7 @@ export default function General({
       />
 
       <textarea
-        id="description"
+        id="userDescription"
         name="description"
         value={user.description}
         onChange={onChange}
