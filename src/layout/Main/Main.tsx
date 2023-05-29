@@ -1,6 +1,6 @@
 import { useState } from "react";
 import General from "../../components/General/General";
-import WorkExperience from "../../components/WorkExperience/WorkExperience";
+import Work from "../../components/Work/Work";
 import Education from "../../components/Education/Education";
 import Skills from "../../components/Skills/Skills";
 import Overview from "../../components/Overview/Overview";
@@ -46,6 +46,7 @@ export default function Main() {
   }
 
   interface Work {
+    id: string;
     position: string;
     company: string;
     city: string;
@@ -53,18 +54,51 @@ export default function Main() {
     to: string;
   }
 
-  const [work, setWork] = useState<Work>({
-    position: "",
-    company: "",
-    city: "",
-    from: "",
-    to: "",
-  });
+  const [workList, setWorkList] = useState<Work[]>([
+    {
+      id: nanoid(4),
+      position: "",
+      company: "",
+      city: "",
+      from: "",
+      to: "",
+    },
+  ]);
 
-  function handleWorkChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function onWorkChange(id: string, e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
+    const index = workList.findIndex((obj) => obj.id === id);
 
-    setWork({ ...work, [name]: value });
+    setWorkList([
+      ...workList.slice(0, index),
+      {
+        ...workList[index],
+        [name]: value,
+      },
+      ...workList.slice(index + 1),
+    ]);
+  }
+
+  function onWorkAdd() {
+    if (workList.length < 5) {
+      setWorkList([
+        ...workList,
+        {
+          id: nanoid(4),
+          position: "",
+          company: "",
+          city: "",
+          from: "",
+          to: "",
+        },
+      ]);
+    } else {
+      alert("You can add only up to 5 work places");
+    }
+  }
+
+  function onWorkDelete(id: string) {
+    setWorkList(workList.filter((work) => work.id !== id));
   }
 
   interface Skill {
@@ -149,7 +183,6 @@ export default function Main() {
     } else {
       alert("You can add only up to 5 degrees");
     }
-    console.log(educationList);
   }
 
   function onEducationDelete(id: string) {
@@ -198,7 +231,12 @@ export default function Main() {
   return (
     <div className="main">
       <General onChange={handleGeneralChange} user={user}></General>
-      <WorkExperience onChange={handleWorkChange} work={work}></WorkExperience>
+      <Work
+        workList={workList}
+        onChange={onWorkChange}
+        onDelete={onWorkDelete}
+        onAdd={onWorkAdd}
+      ></Work>
       <Education
         educationList={educationList}
         onChange={onEducationChange}

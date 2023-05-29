@@ -1,67 +1,64 @@
-import "./WorkExperience.css";
+import "./WorkForm.css";
 
-export default function WorkExperience({
-  onChange,
+export default function Work({
   work,
+  onChange,
+  onDelete,
+  onAdd,
 }: {
-  onChange: any;
   work: any;
+  onChange: any;
+  onDelete: any;
+  onAdd: any;
 }) {
   return (
-    <div className="work-container block">
-      <h2>Work History</h2>
+    <div>
       <input
         type="text"
         id="position"
         name="position"
         placeholder="Position"
         maxLength={30}
-        value={work.title}
-        onChange={onChange}
+        value={work.position}
+        onChange={(e) => onChange(work.id, e)}
       />
-
       <input
         type="text"
         id="company"
         name="company"
         placeholder="Company"
         maxLength={20}
-        value={work.phone}
-        onChange={onChange}
+        value={work.company}
+        onChange={(e) => onChange(work.id, e)}
       />
-
       <input
         type="text"
         id="city"
         name="city"
         placeholder="City"
         maxLength={20}
-        value={work.phone}
-        onChange={onChange}
+        value={work.city}
+        onChange={(e) => onChange(work.id, e)}
       />
-
       <input
         type="text"
         id="from"
         name="from"
         placeholder="From"
-        maxLength={20}
-        value={work.phone}
-        onChange={onChange}
+        maxLength={12}
+        value={work.from}
+        onChange={(e) => onChange(work.id, e)}
       />
-
       <input
         type="text"
         id="to"
         name="to"
         placeholder="To"
-        maxLength={20}
-        value={work.phone}
-        onChange={onChange}
+        maxLength={12}
+        value={work.to}
+        onChange={(e) => onChange(work.id, e)}
       />
-
-      <button>Add</button>
-      <button>Delete</button>
+      <button onClick={() => onDelete(work.id)}>Delete</button>
     </div>
   );
 }

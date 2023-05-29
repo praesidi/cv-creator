@@ -1,0 +1,17 @@
+.work-container div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.work-add-btn {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.work-add-btn button {
+  width: 100%;
+}
