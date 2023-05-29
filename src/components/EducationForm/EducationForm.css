@@ -1,0 +1,17 @@
+.education-container div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.education-add-btn {
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+.education-add-btn button {
+  width: 100%;
+}

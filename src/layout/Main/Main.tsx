@@ -9,7 +9,7 @@ import { nanoid } from "nanoid";
 import "./Main.css";
 
 export default function Main() {
-  interface UserInfo {
+  interface User {
     title: string;
     fName: string;
     lName: string;
@@ -20,7 +20,7 @@ export default function Main() {
     photo: string;
   }
 
-  const [userInfo, setUserInfo] = useState<UserInfo>({
+  const [user, setUser] = useState<User>({
     title: "",
     fName: "",
     lName: "",
@@ -36,16 +36,16 @@ export default function Main() {
 
     if (name === "photo" && e.target.files && e.target.files[0]) {
       const url = URL.createObjectURL(e.target.files[0]);
-      setUserInfo({
-        ...userInfo,
+      setUser({
+        ...user,
         photo: url,
       });
     } else {
-      setUserInfo({ ...userInfo, [name]: value });
+      setUser({ ...user, [name]: value });
     }
   }
 
-  interface WorkInfo {
+  interface Work {
     position: string;
     company: string;
     city: string;
@@ -53,7 +53,7 @@ export default function Main() {
     to: string;
   }
 
-  const [workInfo, setWorkInfo] = useState<WorkInfo>({
+  const [work, setWork] = useState<Work>({
     position: "",
     company: "",
     city: "",
@@ -64,15 +64,15 @@ export default function Main() {
   function handleWorkChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
 
-    setWorkInfo({ ...workInfo, [name]: value });
+    setWork({ ...work, [name]: value });
   }
 
-  interface SkillInfo {
+  interface Skill {
     id: string;
     value: string;
   }
 
-  const [skillsInfo, setSkillsInfo] = useState<SkillInfo[]>([]);
+  const [skillList, setSkillList] = useState<Skill[]>([]);
   const [skill, setSkill] = useState("");
 
   function onSkillChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -84,25 +84,86 @@ export default function Main() {
     const id = nanoid(4);
 
     if (skill) {
-      setSkillsInfo([...skillsInfo, { id: id, value: value }]);
+      setSkillList([...skillList, { id: id, value: value }]);
       setSkill("");
     }
   }
 
   function handleSkillDelete(id: string) {
-    setSkillsInfo(skillsInfo.filter((skill) => skill.id !== id));
+    setSkillList(skillList.filter((skill) => skill.id !== id));
   }
 
-  interface CertificateInfo {
+  interface Education {
+    id: string;
+    university: string;
+    city: string;
+    degree: string;
+    subject: string;
+    from: string;
+    to: string;
+  }
+
+  const [educationList, setEducationList] = useState<Education[]>([
+    {
+      id: nanoid(4),
+      university: "",
+      city: "",
+      degree: "",
+      subject: "",
+      from: "",
+      to: "",
+    },
+  ]);
+
+  function onEducationChange(
+    id: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) {
+    const { name, value } = e.target;
+    const index = educationList.findIndex((obj) => obj.id === id);
+
+    setEducationList([
+      ...educationList.slice(0, index),
+      {
+        ...educationList[index],
+        [name]: value,
+      },
+      ...educationList.slice(index + 1),
+    ]);
+  }
+
+  function onEducationAdd() {
+    if (educationList.length < 5) {
+      setEducationList([
+        ...educationList,
+        {
+          id: nanoid(4),
+          university: "",
+          city: "",
+          degree: "",
+          subject: "",
+          from: "",
+          to: "",
+        },
+      ]);
+    } else {
+      alert("You can add only up to 5 degrees");
+    }
+    console.log(educationList);
+  }
+
+  function onEducationDelete(id: string) {
+    setEducationList(educationList.filter((education) => education.id !== id));
+  }
+
+  interface Certificate {
     id: string;
     value: string;
     year: string;
   }
 
-  const [certificatesInfo, setCertificatesInfo] = useState<CertificateInfo[]>(
-    []
-  );
-  const [certificate, setCertificate] = useState<CertificateInfo>({
+  const [certificateList, setCertificateList] = useState<Certificate[]>([]);
+  const [certificate, setCertificate] = useState<Certificate>({
     id: "",
     value: "",
     year: "",
@@ -120,8 +181,8 @@ export default function Main() {
     const year = certificate.year;
     const id = nanoid(4);
 
-    setCertificatesInfo([
-      ...certificatesInfo,
+    setCertificateList([
+      ...certificateList,
       { id: id, value: value, year: year },
     ]);
     setCertificate({ id: "", value: "", year: "" });
@@ -129,37 +190,40 @@ export default function Main() {
   }
 
   function handleCertificateDelete(id: string) {
-    setCertificatesInfo(
-      certificatesInfo.filter((certificate) => certificate.id !== id)
+    setCertificateList(
+      certificateList.filter((certificate) => certificate.id !== id)
     );
   }
 
   return (
     <div className="main">
-      <General onChange={handleGeneralChange} user={userInfo}></General>
-      <WorkExperience
-        onChange={handleWorkChange}
-        work={workInfo}
-      ></WorkExperience>
-      <Education></Education>
+      <General onChange={handleGeneralChange} user={user}></General>
+      <WorkExperience onChange={handleWorkChange} work={work}></WorkExperience>
+      <Education
+        educationList={educationList}
+        onChange={onEducationChange}
+        onDelete={onEducationDelete}
+        onAdd={onEducationAdd}
+      ></Education>
       <Skills
         skill={skill}
-        skills={skillsInfo}
+        skills={skillList}
         onChange={onSkillChange}
         onDelete={handleSkillDelete}
         onClick={handleSkillClick}
       ></Skills>
       <Certificates
         certificate={certificate}
-        certificates={certificatesInfo}
+        certificates={certificateList}
         onChange={onCertificateChange}
         onDelete={handleCertificateDelete}
         onClick={handleCertificateClick}
       ></Certificates>
       <Overview
-        user={userInfo}
-        skills={skillsInfo}
-        certificates={certificatesInfo}
+        user={user}
+        skills={skillList}
+        certificates={certificateList}
+        educationList={educationList}
       ></Overview>
     </div>
   );

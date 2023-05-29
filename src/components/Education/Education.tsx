@@ -1,71 +1,42 @@
-import "./Education.css";
+import EducationForm from "../EducationForm/EducationForm";
 
-export default function Education() {
+export default function Education({
+  educationList,
+  onChange,
+  onDelete,
+  onAdd,
+}: {
+  educationList: any;
+  onChange: any;
+  onDelete: any;
+  onAdd: any;
+}) {
   return (
-    <div className="education-container block">
+    <div>
       <h2>Education</h2>
-      <input
-        type="text"
-        id="university"
-        name="university"
-        placeholder="University Name"
-        maxLength={30}
-        // value={work.title}
-        // onChange={onChange}
-      />
-
-      <input
-        type="text"
-        id="city"
-        name="city"
-        placeholder="City"
-        maxLength={20}
-        // value={work.phone}
-        // onChange={onChange}
-      />
-
-      <input
-        type="text"
-        id="degree"
-        name="degree"
-        placeholder="Degree"
-        maxLength={20}
-        // value={work.phone}
-        // onChange={onChange}
-      />
-
-      <input
-        type="text"
-        id="subject"
-        name="subject"
-        placeholder="Subject"
-        maxLength={20}
-        // value={work.phone}
-        // onChange={onChange}
-      />
-
-      <input
-        type="text"
-        id="from"
-        name="from"
-        placeholder="From"
-        maxLength={20}
-        // value={work.phone}
-        // onChange={onChange}
-      />
-
-      <input
-        type="text"
-        id="to"
-        name="to"
-        placeholder="To"
-        maxLength={20}
-        // value={work.phone}
-        // onChange={onChange}
-      />
-
-      <button>Add</button>
-      <button>Delete</button>
+      <div className="education-container">
+        {educationList.map(
+          (education: {
+            id: string;
+            university: string;
+            city: string;
+            degree: string;
+            subject: string;
+            from: string;
+            to: string;
+          }) => (
+            <EducationForm
+              key={education.id}
+              education={education}
+              onChange={onChange}
+              onDelete={onDelete}
+            ></EducationForm>
+          )
+        )}
+      </div>
+      <div className="education-add-btn">
+        <button onClick={onAdd}>Add</button>
+      </div>
     </div>
   );
 }
