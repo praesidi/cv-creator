@@ -5,10 +5,12 @@ export default function Overview({
   user,
   skills,
   certificates,
+  educationList,
 }: {
   user: any;
   skills: any;
   certificates: any;
+  educationList: any;
 }) {
   return (
     <div className="overview-container">
@@ -70,10 +72,24 @@ export default function Overview({
           </div>
           <div>
             <h2>Education</h2>
-            <ul className="skills-list">
-              {skills.map((skill: any) => (
-                <li key={skill.id}>
-                  <span>{skill.value}</span>
+            <ul className="education-list">
+              {educationList.map((education: any) => (
+                <li key={education.id}>
+                  <span>
+                    {education.to
+                      ? `${education.from} to ${education.to}`
+                      : education.from}
+                  </span>
+                  <span className="span-bald">
+                    {education.subject
+                      ? `${education.degree}, ${education.subject}`
+                      : education.degree}
+                  </span>
+                  <span>
+                    {education.city
+                      ? `${education.university}, ${education.city}`
+                      : education.university}
+                  </span>
                 </li>
               ))}
             </ul>

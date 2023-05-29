@@ -116,3 +116,21 @@
   position: relative;
   left: -10px;
 }
+
+.education-list {
+  list-style: none;
+}
+
+.education-list li {
+  margin-bottom: 10px;
+}
+
+.education-list span {
+  display: block;
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+
+.span-bald {
+  font-weight: 600;
+}
