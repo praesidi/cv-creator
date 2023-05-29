@@ -76,7 +76,7 @@ export default function Overview({
                       {work.city}
                     </span>
                   ) : (
-                    <span className="work-list">{work.company}</span>
+                    <span className="span-bald">{work.company}</span>
                   )}
                   <span>{work.description}</span>
                 </li>
