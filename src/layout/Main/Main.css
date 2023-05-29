@@ -39,7 +39,7 @@ button {
   transition: 0.3s;
   font-weight: 600;
   color: whitesmoke;
-  background: black;
+  background: rgb(36, 36, 36);
 }
 
 button:focus {

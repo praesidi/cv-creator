@@ -1,4 +1,3 @@
-import { Key } from "react";
 import Skill from "../Skill/Skill";
 import "./Skills.css";
 
