@@ -3,13 +3,15 @@ import avatarPlaceholder from "../../assets/avatar-placeholder.jpg";
 
 export default function Overview({
   user,
-  skills,
-  certificates,
+  workList,
+  skillList,
+  certificateList,
   educationList,
 }: {
   user: any;
-  skills: any;
-  certificates: any;
+  workList: any;
+  skillList: any;
+  certificateList: any;
   educationList: any;
 }) {
   return (
@@ -57,13 +59,26 @@ export default function Overview({
         <div className="overview-main-left">
           <div>
             <h2>Work History</h2>
+            <ul className="work-list">
+              {workList.map((work: any) => (
+                <li key={work.id}>
+                  <span>
+                    {work.to ? `${work.from} to ${work.to}` : work.from}
+                  </span>
+                  <span className="span-bald">{work.position}</span>
+                  <span>
+                    {work.city ? `${work.company}, ${work.city}` : work.company}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
         <div className="overview-main-right">
           <div>
             <h2>Skills</h2>
-            <ul>
-              {skills.map((skill: any) => (
+            <ul className="skill-list">
+              {skillList.map((skill: any) => (
                 <li key={skill.id}>
                   <span>{skill.value}</span>
                 </li>
@@ -97,7 +112,7 @@ export default function Overview({
           <div>
             <h2>Certifications</h2>
             <ul className="certificates-list">
-              {certificates.map((certificate: any) => (
+              {certificateList.map((certificate: any) => (
                 <li key={certificate.id}>
                   <span>
                     {certificate.year
