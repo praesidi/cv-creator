@@ -92,8 +92,8 @@
 
 .overview-main h2 {
   color: black;
-  font-weight: 500;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   text-align: start;
   margin: 0;
   letter-spacing: 1px;
@@ -110,9 +110,19 @@
   text-align: left;
   margin-bottom: 5px;
   list-style-position: inside;
+  font-size: 14px;
+  line-height: 1.3rem;
 }
 
-.skills-list li span {
+.education-list span {
+  display: block;
+}
+
+.skill-list li::before {
+  color: #0086de;
+}
+
+.skill-list li span {
   position: relative;
   left: -10px;
 }
@@ -123,12 +133,6 @@
 
 .education-list li {
   margin-bottom: 10px;
-}
-
-.education-list span {
-  display: block;
-  font-size: 14px;
-  line-height: 1.5rem;
 }
 
 .span-bald {
