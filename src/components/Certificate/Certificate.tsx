@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Certificate.css";
 
 export default function Certificate({

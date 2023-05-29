@@ -29,7 +29,6 @@ export default function Education({
               work={work}
               onChange={onChange}
               onDelete={onDelete}
-              onAdd={onAdd}
             ></WorkForm>
           )
         )}

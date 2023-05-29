@@ -4,12 +4,10 @@ export default function Work({
   work,
   onChange,
   onDelete,
-  onAdd,
 }: {
   work: any;
   onChange: any;
   onDelete: any;
-  onAdd: any;
 }) {
   return (
     <div>

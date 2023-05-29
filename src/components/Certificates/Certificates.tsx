@@ -1,4 +1,3 @@
-import { Key } from "react";
 import Certificate from "../Certificate/Certificate";
 import "./Certificates.css";
 

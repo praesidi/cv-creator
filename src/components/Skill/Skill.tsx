@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Skill.css";
 
 export default function Skill({
