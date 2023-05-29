@@ -1,12 +1,10 @@
 import "./EducationForm.css";
 
 export default function EducationForm({
-  // educationId,
   education,
   onChange,
   onDelete,
 }: {
-  // educationId: number;
   education: any;
   onChange: any;
   onDelete: any;

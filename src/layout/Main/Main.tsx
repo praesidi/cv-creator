@@ -221,8 +221,9 @@ export default function Main() {
       ></Certificates>
       <Overview
         user={user}
-        skills={skillList}
-        certificates={certificateList}
+        workList={workList}
+        skillList={skillList}
+        certificateList={certificateList}
         educationList={educationList}
       ></Overview>
     </div>
