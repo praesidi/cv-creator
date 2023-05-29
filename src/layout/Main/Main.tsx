@@ -16,6 +16,7 @@ export default function Main() {
     address: string;
     phone: string;
     email: string;
+    portfolio: string;
     description: string;
     photo: string;
   }
@@ -27,6 +28,7 @@ export default function Main() {
     address: "",
     phone: "",
     email: "",
+    portfolio: "",
     description: "",
     photo: "",
   });

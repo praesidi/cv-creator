@@ -50,7 +50,10 @@ export default function Overview({
                 <i className="fa-solid fa-phone"></i>
                 {user.phone}
               </td>
-              <td></td>
+              <td>
+                <i className="fa-solid fa-earth-americas"></i>
+                {user.portfolio}
+              </td>
             </tr>
           </tbody>
         </table>

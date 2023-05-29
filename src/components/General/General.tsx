@@ -68,6 +68,15 @@ export default function General({
         placeholder="Email"
       />
 
+      <input
+        type="url"
+        id="portfolio"
+        name="portfolio"
+        value={user.portfolio}
+        onChange={onChange}
+        placeholder="Link to the Portfolio or Personal Website"
+      />
+
       <textarea
         id="description"
         name="description"
